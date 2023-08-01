@@ -1,31 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from '../interfaces/character.interface';
+import { DbzService } from '../dbz.service';
 
 @Component({
   selector: 'app-dbz-main-page',
   templateUrl: './main-page.component.html',
 })
 export class MainPageComponent {
-  public characters: Character[] = [
-    {
-      name: 'Krilin',
-      power: 1000,
-    },
-    {
-      name: 'Goku',
-      power: 10000,
-    },
-    {
-      name: 'Vegeta',
-      power: 8000,
-    },
-  ];
-
-  addNewCharacter(character: Character): void {
-    this.characters.push(character);
-  }
-
-  deleteCharacter(index: number): void {
-    this.characters.splice(index, 1);
-  }
+  //inyectamos servicio en en el constructor
+  constructor(public dbzService: DbzService) {}
 }
